@@ -6,6 +6,7 @@ target/
 logs/
 *.log
 .dir-locals.el
+out/
 
 # IDE
 *.swp
