@@ -1,4 +1,4 @@
-(defproject tol "0.0.0"
+(defproject tol "0.1.0"
   :description "A Tól is a set of functions that extend Clojure core functions"
   :url "https://github.com/druids/tol"
   :license {:name "MIT License"
