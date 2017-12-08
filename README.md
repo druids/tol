@@ -10,3 +10,18 @@ Tól is a set of functions that extend Clojure/ClojureScript core functions. A l
 [![CircleCI](https://circleci.com/gh/druids/tol.svg?style=svg)](https://circleci.com/gh/druids/tol)
 [![Dependencies Status](https://jarkeeper.com/druids/tol/status.png)](https://jarkeeper.com/druids/tol)
 [![License](https://img.shields.io/badge/MIT-Clause-blue.svg)](https://opensource.org/licenses/MIT)
+
+
+Documentation
+-------------
+
+
+### ->int
+Coerce a given input as an `integer`. If the input is not an `integer` it returns `nil`.
+
+```clojure
+(tol/->int 1) ;; 1
+(tol/->int "1") ;; 1
+(tol/->int nil) ;; nil
+(tol/->int "") ;; nil
+```
