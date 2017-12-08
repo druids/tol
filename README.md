@@ -7,5 +7,6 @@ Tól is a set of functions that extend Clojure/ClojureScript core functions. A l
  (e.g. `string` module). All Tól functions are designed not to be NPE-prone (rather return `nil`, instead of throw NPE)
  thus they can be used e.g. in `some->` macro.
 
+[![CircleCI](https://circleci.com/gh/druids/tol.svg?style=svg)](https://circleci.com/gh/druids/tol)
 [![Dependencies Status](https://jarkeeper.com/druids/tol/status.png)](https://jarkeeper.com/druids/tol)
 [![License](https://img.shields.io/badge/MIT-Clause-blue.svg)](https://opensource.org/licenses/MIT)
