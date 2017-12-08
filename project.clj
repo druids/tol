@@ -14,14 +14,14 @@
                     :doo {:build "test"}
                     :cljsbuild {:builds
                                 {:test {:source-paths ["src" "test"]
-                                        :compiler {:main tol.runner}
-                                                  :output-to "target/test/core.js"
-                                                  :target :nodejs
-                                                  :optimizations :none
-                                                  :source-map true
-                                                  :pretty-print true}}}
-                    :prep-tasks [["cljsbuild" "once"]]
-                    :hooks [leiningen.cljsbuild]}}
-  :aliases {"cljs-tests" ["with-profile" "cljs" "doo" "node" "once"]
+                                        :compiler {:main tol.runner
+                                                   :output-to "target/test/core.js"
+                                                   :optimizations :none
+                                                   :source-map true
+                                                   :pretty-print true
+                                                   ;; workaround for running lein doo with latest CLJS, see
+                                                   ;; https://github.com/bensu/doo/pull/141}}}}
+                                                   :process-shim false}}}}}}
+  :aliases {"cljs-tests" ["with-profile" "cljs" "doo" "phantom" "once"]
             "cljs-auto" ["with-profile" "cljs" "cljsbuild" "auto"]
             "cljs-once" ["with-profile" "cljs" "cljsbuild" "once"]})
