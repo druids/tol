@@ -25,3 +25,14 @@ Coerce a given input as an `integer`. If the input is not an `integer` it return
 (tol/->int nil) ;; nil
 (tol/->int "") ;; nil
 ```
+
+### ->uuid
+Coerce a given `value` as `java.util.UUID`. When the `value` is not a valid UUID, it returns `nil`.
+In ClojureScript there is not UUID class/function (not even in Google Closure Library). Thus in ClojureScript
+it returns just `string` value for non-blank `value`.
+
+```clojure
+(tol/->uuid "59537428-0b92-4d3a-9192-bcbae9a18889") ;; #uuid "59537428-0b92-4d3a-9192-bcbae9a18889"
+(tol/->uuid nil) ;; nil
+(tol/->uuid "") ;; nil
+(tol/->uuid "asdf") ;; nil
