@@ -7,6 +7,8 @@ logs/
 *.log
 .dir-locals.el
 out/
+pom.xml.asc
+pom.xml
 
 # IDE
 *.swp
