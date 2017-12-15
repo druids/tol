@@ -36,3 +36,13 @@ it returns just `string` value for non-blank `value`.
 (tol/->uuid nil) ;; nil
 (tol/->uuid "") ;; nil
 (tol/->uuid "asdf") ;; nil
+
+Contribution
+------------
+
+### Conventions
+
+* Please follow coding style defined by [`.editorconfig`](http://editorconfig.org)
+ and [The Clojure Style Guide](https://github.com/bbatsov/clojure-style-guide)
+* Write [good commit messages](https://chris.beams.io/posts/git-commit/)
+ and provide an issue ID in a commit message prefixed by `#`
