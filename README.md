@@ -36,6 +36,7 @@ it returns just `string` value for non-blank `value`.
 (tol/->uuid nil) ;; nil
 (tol/->uuid "") ;; nil
 (tol/->uuid "asdf") ;; nil
+```
 
 Contribution
 ------------
