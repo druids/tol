@@ -1,4 +1,4 @@
-(defproject tol "0.1.0"
+(defproject tol "0.2.0"
   :description "A Tól is a set of functions that extend Clojure core functions"
   :url "https://github.com/druids/tol"
   :license {:name "MIT License"
@@ -7,11 +7,6 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.9.946"]]
 
-a
-:q
-
-:q
-:q
   :profiles {:dev {:plugins [[lein-cloverage "1.0.10"]
                              [lein-kibit "0.1.6"]]}
              :cljs {:plugins [[lein-cljsbuild "1.1.7"]
