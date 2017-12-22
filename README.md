@@ -12,6 +12,14 @@ Tól is a set of functions that extend Clojure/ClojureScript core functions. A l
 [![License](https://img.shields.io/badge/MIT-Clause-blue.svg)](https://opensource.org/licenses/MIT)
 
 
+Leiningen/Boot
+--------------
+
+```clojure
+[tol "0.2.0"]
+```
+
+
 Documentation
 -------------
 
