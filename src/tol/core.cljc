@@ -18,10 +18,11 @@
    In ClojureScript there is not UUID class/function (not even in Google Closure Library). Thus in ClojureScript
    it returns just `string` value for non-blank `value`."
   [value]
-  (when-not (blank? value)
-    #?(:clj
-       (try
-         (java.util.UUID/fromString value)
-         (catch Exception e nil)))
-    #?(:cljs
-       (str value))))
+  (let [str-value (str value)]
+    (when-not (blank? str-value)
+      #?(:clj
+         (try
+           (java.util.UUID/fromString str-value)
+           (catch Exception e nil)))
+      #?(:cljs
+         value))))
