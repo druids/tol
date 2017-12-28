@@ -27,11 +27,15 @@
        (are [expected value] (= expected (tol/->uuid value))
             (java.util.UUID/fromString "59537428-0b92-4d3a-9192-bcbae9a18889") "59537428-0b92-4d3a-9192-bcbae9a18889"
             (java.util.UUID/fromString "00000000-0000-0000-0000-000000000000") "0-0-0-0-0"
+            (java.util.UUID/fromString "59537428-0b92-4d3a-9192-bcbae9a18889") (java.util.UUID/fromString
+                                                                                 "59537428-0b92-4d3a-9192-bcbae9a18889")
             nil nil
             nil ""
             nil " "
             nil "asdf"
-            nil "12-"))))
+            nil "12-"
+            nil []
+            nil 12))))
 
 #?(:cljs
    (deftest ->uuid-test
