@@ -1,3 +1,10 @@
+## 0.3.0
+
+#### New Features
+
+  - Added `upperf` and `lowerf` functions #17
+  - Added Eastwood for linting #15
+
 ## 0.2.1
 
 #### Fixed
