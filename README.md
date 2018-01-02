@@ -46,6 +46,27 @@ it returns just `string` value for non-blank `value`.
 (tol/->uuid "asdf") ;; nil
 ```
 
+### lowerf
+Lower cases first character of a given `value`. It's safe, when the `value` is `nil` or empty `string` returns `nil`,
+ otherwise `string.`
+
+```clojure
+(tol/lowerf nil) ;; nil
+(tol/lowerf "") ;; nil
+(tol/lowerf "ABC") ;; "aBC"
+```
+
+### upperf
+Upper cases first character of a given `value`. It's safe, when the `value` is `nil` or empty `string` returns `nil`,
+ otherwise `string.`
+
+```clojure
+(tol/upperf nil) ;; nil
+(tol/upperf "") ;; nil
+(tol/upperf "abC") ;; "AbC"
+```
+
+
 Contribution
 ------------
 

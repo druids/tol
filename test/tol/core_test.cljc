@@ -48,3 +48,23 @@
             nil " "
             "asdf" "asdf"
             "12-" "12-"))))
+
+
+(deftest lowerf-test
+  (testing "should lower case first character"
+    (are [expected value] (= expected (tol/lowerf value))
+
+         nil nil
+         nil ""
+         "aBC" "ABC"
+         "-" "-")))
+
+
+(deftest upperf-test
+  (testing "should upper case first character"
+    (are [expected value] (= expected (tol/upperf value))
+
+         nil nil
+         nil ""
+         "AbC" "abC"
+         "-" "-")))
