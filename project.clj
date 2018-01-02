@@ -8,7 +8,8 @@
                  [org.clojure/clojurescript "1.9.946"]]
 
   :profiles {:dev {:plugins [[lein-cloverage "1.0.10"]
-                             [lein-kibit "0.1.6"]]}
+                             [lein-kibit "0.1.6"]
+                             [jonase/eastwood "0.2.5"]]}
              :cljs {:plugins [[lein-cljsbuild "1.1.7"]
                               [lein-doo "0.1.8"]]
                     :doo {:build "test"}
