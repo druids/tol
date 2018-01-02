@@ -1,6 +1,6 @@
 (ns tol.core
   (:require
-    [clojure.string :refer [blank?]])
+    [clojure.string :refer [blank? join lower-case upper-case]])
   #?(:clj
      (:import java.util.UUID)))
 
@@ -26,3 +26,25 @@
            (catch Exception e nil)))
       #?(:cljs
          value))))
+
+
+(defn- case-first
+  [case-fn value]
+  (when-not (zero? (count value))
+    (let [sanitized-value (str value)]
+      (if (< 1 (count sanitized-value))
+        (join (cons (-> sanitized-value first case-fn)
+                    (subs sanitized-value 1)))
+        (case-fn sanitized-value)))))
+
+
+(def lowerf
+  "Lower cases first character of a given `value`. It's safe, when the `value` is `nil` or empty `string` returns `nil`,
+   otherwise `string.`"
+  (partial case-first lower-case))
+
+
+(def upperf
+  "Upper cases first character of a given `value`. It's safe, when the `value` is `nil` or empty `string` returns `nil`,
+   otherwise `string.`"
+  (partial case-first upper-case))
