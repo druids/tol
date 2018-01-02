@@ -16,7 +16,7 @@ Leiningen/Boot
 --------------
 
 ```clojure
-[tol "0.2.1"]
+[tol "0.3.0"]
 ```
 
 
