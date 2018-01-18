@@ -27,6 +27,6 @@ jobs:
       - run: phantomjs --version
       - run: lein test
       - run: lein cljs-tests
-      - run: lein cloverage --fail-threshold 95
       - run: lein kibit
       - run: lein eastwood
+      - run: lein cloverage --fail-threshold 95 -o cov --coveralls && curl -F 'json_file=@cov/coveralls.json' "https://coveralls.io/api/v1/jobs"
