@@ -29,4 +29,6 @@ jobs:
       - run: lein cljs-tests
       - run: lein kibit
       - run: lein eastwood
-      - run: lein cloverage --fail-threshold 95 -o cov --coveralls && curl -F 'json_file=@cov/coveralls.json' "https://coveralls.io/api/v1/jobs"
+      - run: lein cloverage --fail-threshold 95 -o cov --coveralls
+      - run: sed -i "s/\"service_job_id\"/\"repo_token\":\"$COVERALLS_REPO_TOKEN\",\"service_job_id\"/" cov/coveralls.json
+      - run: curl -F 'json_file=@cov/coveralls.json' "https://coveralls.io/api/v1/jobs"
