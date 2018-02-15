@@ -1,7 +1,7 @@
 (ns tol.core-test
   (:require
-    #?(:clj [clojure.test :refer [are deftest testing]])
-    #?(:cljs [cljs.test :refer-macros [are deftest testing]])
+    #?(:clj [clojure.test :refer [are deftest is testing]])
+    #?(:cljs [cljs.test :refer-macros [are deftest is testing]])
     [tol.core :as tol])
   #?(:clj
      (:import
@@ -68,3 +68,25 @@
          nil ""
          "AbC" "abC"
          "-" "-")))
+
+
+#?(:clj
+   (deftest if-let*-test
+     (is (= (tol/if-let*
+              [a 1
+               b (+ a 1)]
+              b)
+            2))
+
+     (is (= (tol/if-let*
+              [a 1
+               b (+ a 1)
+               c false]
+              :then
+              :else)
+            :else))
+
+     (is (nil? (tol/if-let*
+                 [a 1
+                  b nil]
+                 a)))))
