@@ -1,3 +1,9 @@
+## 0.4.0
+
+#### New Features
+
+  - Added `if-let*` macro #26
+
 ## 0.3.0
 
 #### New Features
