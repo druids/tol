@@ -66,6 +66,30 @@ Upper cases first character of a given `value`. It's safe, when the `value` is `
 (tol/upperf "abC") ;; "AbC"
 ```
 
+### if-let*
+It's if-let with multiple bindings. It allows to flatten and simplify some code nesting.
+
+It doesn't work in ClojureScript.
+
+```clojure
+(tol/if-let*
+  [a 1
+   b (+ a 1)]
+  b) ;; 2
+
+(tol/if-let*
+  [a 1
+   b (+ a 1)
+   c false]
+  :then
+  :else) ;; :else
+
+(tol/if-let*
+  [a 1
+   b nil]
+  a) ;; nil
+```
+
 
 Contribution
 ------------

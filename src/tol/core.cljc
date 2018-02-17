@@ -48,3 +48,32 @@
   "Upper cases first character of a given `value`. It's safe, when the `value` is `nil` or empty `string` returns `nil`,
    otherwise `string.`"
   (partial case-first upper-case))
+
+#?(:clj
+   (defmacro if-let*
+     "Taken from https://clojuredocs.org/clojure.core/if-let. It's if-let with multiple bindings.
+      It allows to flatten and simplify some code nesting, for instance:
+      From
+      (if-let [some-x (x)]
+        (if-let [some-y (y)]
+          (if-let [some-z (z)]
+            :found
+            :not-found)
+          :not-found)
+        :not-found)
+      into
+      (if-let* [some-x (x)
+                some-y (y)
+                some-z (z)]
+        :found
+        :not-found)
+
+      It doesn't work in ClojureScript."
+     ([bindings then]
+      `(if-let* ~bindings ~then nil))
+     ([bindings then else]
+      (if (seq bindings)
+        `(if-let [~(first bindings) ~(second bindings)]
+           (if-let* ~(drop 2 bindings) ~then ~else)
+           ~else)
+        then))))
