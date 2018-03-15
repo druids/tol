@@ -1,3 +1,10 @@
+## 0.5.0
+
+#### New Features
+
+  - Add `non-blank*` function #28
+
+
 ## 0.4.0
 
 #### New Features
