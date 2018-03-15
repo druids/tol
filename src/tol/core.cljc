@@ -77,3 +77,10 @@
            (if-let* ~(drop 2 bindings) ~then ~else)
            ~else)
         then))))
+
+
+(defn non-blank
+  "Return a given `input` when it isn't `nil`. Otherwise `nil` is returned. It's useful for `some->` macros."
+  [input]
+  (when-not (blank? input)
+    input))

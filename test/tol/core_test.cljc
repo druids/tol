@@ -90,3 +90,14 @@
                  [a 1
                   b nil]
                  a)))))
+
+
+(deftest non-blank-test
+  (testing "should return value or nil"
+    (are [expected value] (= expected (tol/non-blank value))
+
+         nil nil
+         nil ""
+         nil " "
+         " -" " -"
+         "a" "a")))

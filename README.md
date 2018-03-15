@@ -90,6 +90,16 @@ It doesn't work in ClojureScript.
   a) ;; nil
 ```
 
+### non-blank
+Return a given `input` when it isn't `nil`. Otherwise `nil` is returned. It's useful for `some->` macros.
+
+```clojure
+(tol/non-blank nil) ;; nil
+(tol/non-blank "") ;; nil
+(tol/non-blank " ") ;; nil
+(tol/non-blank "abC") ;; "AbC"
+```
+
 
 Contribution
 ------------
