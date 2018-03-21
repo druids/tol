@@ -100,6 +100,15 @@ Return a given `input` when it isn't `nil`. Otherwise `nil` is returned. It's us
 (tol/non-blank "abC") ;; "AbC"
 ```
 
+### update-values
+Applies a given function `f` on every value in a given `coll`
+
+```clojure
+(tol/update-values inc {:a 0}) ;; {:a 1}
+(tol/update-values inc nil) ;; nil
+(tol/update-values inc {}) ;; {}
+```
+
 
 Contribution
 ------------

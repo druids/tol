@@ -1,3 +1,10 @@
+## 0.6.0
+
+#### New Features
+
+  - Add `update-values` function #30
+
+
 ## 0.5.0
 
 #### New Features

@@ -84,3 +84,9 @@
   [input]
   (when-not (blank? input)
     input))
+
+
+(defn update-values
+  "Applies a given function `f` on every value in a given `coll`."
+  [f coll]
+  (reduce-kv (fn [acc k v] (assoc acc k (f v))) coll coll))
