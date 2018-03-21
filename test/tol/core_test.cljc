@@ -101,3 +101,12 @@
          nil " "
          " -" " -"
          "a" "a")))
+
+
+(deftest update-values-test
+  (testing "should update values"
+    (are [expected value] (= expected (tol/update-values inc value))
+
+         {:a 1} {:a 0}
+         nil nil
+         {} {})))
