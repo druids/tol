@@ -90,3 +90,19 @@
   "Applies a given function `f` on every value in a given `coll`."
   [f coll]
   (reduce-kv (fn [acc k v] (assoc acc k (f v))) coll coll))
+
+
+#?(:clj
+   (defmacro case+
+     "Same as case, but evaluates dispatch values, needed for referring to class and defined constants
+      as well as java.util.Enum instances.
+
+      Inspirated by: https://github.com/damballa/abracad/blob/master/src/clojure/abracad/avro/util.clj"
+     [e & clauses]
+     `(case (when (instance? java.lang.Enum ~e) (.ordinal ~e))
+        ~@(concat
+           (mapcat (fn [[test-expr result]]
+                     [(eval `(let [test-expr# (.ordinal ~test-expr)] test-expr#)) result])
+                   (partition 2 clauses))
+           (when (odd? (count clauses))
+             (list (last clauses)))))))

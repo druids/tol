@@ -1,3 +1,10 @@
+## 0.7.0
+
+#### New Features
+
+  - Add `case+` macro #32
+
+
 ## 0.6.0
 
 #### New Features
