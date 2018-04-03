@@ -109,6 +109,26 @@ Applies a given function `f` on every value in a given `coll`
 (tol/update-values inc {}) ;; {}
 ```
 
+### case+
+Same as case, but evaluates dispatch values, needed for referring to class and defined constants as well as
+java.util.Enum instances.
+
+It doesn't work in ClojureScript.
+
+```clojure
+(tol/case+ java.util.concurrent.TimeUnit/SECONDS
+  java.util.concurrent.TimeUnit/SECONDS :seconds
+  nil) ;; :seconds
+
+(tol/case+ nil
+  java.util.concurrent.TimeUnit/SECONDS :seconds
+  nil) ;; nil
+
+(tol/case+ 1
+  java.util.concurrent.TimeUnit/SECONDS :seconds
+  nil) ;; nil
+```
+
 
 Contribution
 ------------
