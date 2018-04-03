@@ -110,3 +110,12 @@
          {:a 1} {:a 0}
          nil nil
          {} {})))
+
+#?(:clj
+   (deftest case+-test
+     (are [expected input] (= expected (tol/case+ input
+                                                  java.util.concurrent.TimeUnit/SECONDS :seconds
+                                                  nil))
+          :seconds java.util.concurrent.TimeUnit/SECONDS
+          nil nil
+          nil 3)))
