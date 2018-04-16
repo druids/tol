@@ -1,3 +1,10 @@
+## 0.8.0
+
+#### New Features
+
+  - Add `update-keys` function #34
+
+
 ## 0.7.0
 
 #### New Features

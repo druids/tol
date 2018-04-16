@@ -100,6 +100,20 @@ Return a given `input` when it isn't `nil`. Otherwise `nil` is returned. It's us
 (tol/non-blank "abC") ;; "AbC"
 ```
 
+### update-keys
+Applies a given function `f` on every key in a given associative structure `m`, where `f` is a function
+that will take a key-name and any supplied args and return new value.
+
+```clojure
+(tol/update-keys inc {0 :a}) ;; {1 :a}
+(tol/update-keys inc nil) ;; nil
+(tol/update-keys inc {}) ;; nil
+(tol/update-keys + 2 {0 :a}) ;; {2 :a}
+(tol/update-keys + 2 1 {0 :a}) ;; {3 :a}
+(tol/update-keys + 3 2 1 {0 :a}) ;; {6 :a}
+(tol/update-keys (fn [init a b c more] (apply + (concat [init a b c] more))) 4 3 2 [1] {0 :a}) ;; {10 :a}
+```
+
 ### update-values
 Applies a given function `f` on every value in a given `coll`
 
