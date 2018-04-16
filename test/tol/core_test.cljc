@@ -103,6 +103,22 @@
          "a" "a")))
 
 
+(deftest update-keys-test
+  (testing "should update keys"
+    (are [expected value] (= expected (tol/update-keys keyword value))
+
+         {:a 0} {"a" 0}
+         nil nil
+         nil {}))
+
+  (testing "arities"
+    (is (= {1 :a} (tol/update-keys inc {0 :a})))
+    (is (= {2 :a} (tol/update-keys + 2 {0 :a})))
+    (is (= {3 :a} (tol/update-keys + 2 1 {0 :a})))
+    (is (= {6 :a} (tol/update-keys + 3 2 1 {0 :a})))
+    (is (= {10 :a} (tol/update-keys (fn [init a b c more] (apply + (concat [init a b c] more))) 4 3 2 [1] {0 :a})))))
+
+
 (deftest update-values-test
   (testing "should update values"
     (are [expected value] (= expected (tol/update-values inc value))

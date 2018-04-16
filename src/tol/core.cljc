@@ -86,6 +86,22 @@
     input))
 
 
+(defn update-keys
+  "Applies a given function `f` on every key in a given associative structure `m`, where `f` is a function
+   that will take a key-name and any supplied args and return new value."
+  ([f m]
+   (when (seq m)
+     (reduce-kv (fn [acc k v] (assoc acc (f k) v)) {} m)))
+  ([f x m]
+   (update-keys #(f % x) m))
+  ([f x y m]
+   (update-keys #(f % x y) m))
+  ([f x y z m]
+   (update-keys #(f % x y z) m))
+  ([f x y z more m]
+   (update-keys #(f % x y z more) m)))
+
+
 (defn update-values
   "Applies a given function `f` on every value in a given `coll`."
   [f coll]
