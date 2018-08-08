@@ -102,10 +102,13 @@
    (update-keys #(f % x y z more) m)))
 
 
-(defn update-values
+(defn update-vals
   "Applies a given function `f` on every value in a given `coll`."
   [f coll]
   (reduce-kv (fn [acc k v] (assoc acc k (f v))) coll coll))
+
+
+(def ^{:deprecated "0.9.0"} update-values)
 
 
 #?(:clj

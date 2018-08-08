@@ -119,9 +119,9 @@
     (is (= {10 :a} (tol/update-keys (fn [init a b c more] (apply + (concat [init a b c] more))) 4 3 2 [1] {0 :a})))))
 
 
-(deftest update-values-test
+(deftest update-vals-test
   (testing "should update values"
-    (are [expected value] (= expected (tol/update-values inc value))
+    (are [expected value] (= expected (tol/update-vals inc value))
 
          {:a 1} {:a 0}
          nil nil
