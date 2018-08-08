@@ -1,3 +1,10 @@
+## 0.9.0
+
+#### Changes
+
+  - Replace `update-values` by `update-vals` #36
+
+
 ## 0.8.0
 
 #### New Features
