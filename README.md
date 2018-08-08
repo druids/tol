@@ -114,13 +114,13 @@ that will take a key-name and any supplied args and return new value.
 (tol/update-keys (fn [init a b c more] (apply + (concat [init a b c] more))) 4 3 2 [1] {0 :a}) ;; {10 :a}
 ```
 
-### update-values
+### update-vals
 Applies a given function `f` on every value in a given `coll`
 
 ```clojure
-(tol/update-values inc {:a 0}) ;; {:a 1}
-(tol/update-values inc nil) ;; nil
-(tol/update-values inc {}) ;; {}
+(tol/update-vals inc {:a 0}) ;; {:a 1}
+(tol/update-vals inc nil) ;; nil
+(tol/update-vals inc {}) ;; {}
 ```
 
 ### case+
